@@ -5,7 +5,8 @@ on:
 
 jobs:
   aws-s3:
-    runs-on: [self-hosted, awsactions]
+    # runs-on: [self-hosted, awsactions]
+    runs-on: ubuntu-latest
 
     steps:
       - name: checkout
