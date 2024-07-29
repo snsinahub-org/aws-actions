@@ -26,4 +26,4 @@ jobs:
       - name: AWS cli copy file to S3 bucket
         run: |
           aws s3 cp . s3://zytest1/ --recursive
-          aws lambda create-function --function-name my-function --runtime nodejs18.x --zip-file fileb://my-function.zip --handler my-function.handler 
+          aws lambda create-function --function-name my-function --runtime nodejs18.x --zip-file fileb://my-function.zip --handler my-function.handler --role ${{ secrets.AWS_IAM_ROLE_LAMBDA }}
