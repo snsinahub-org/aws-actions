@@ -12,6 +12,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: zio file
+        run: |
+          zip my-functions.zip my-function.js
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
