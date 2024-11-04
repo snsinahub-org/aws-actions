@@ -31,4 +31,16 @@ jobs:
         run: |
           aws lambda list-functions          
           aws lambda create-function --function-name my-function --runtime nodejs18.x --zip-file fileb://my-function.zip --handler my-function.handler --role ${{ secrets.AWS_IAM_ROLE_LAMBDA }}
-          # aws s3 cp . s3://zytest1/ --recursive
+          aws s3 cp glue.py s3://zytest1/ --recursive
+          GLUE_JOB_NAME="glue-2"
+          GLUE_SCRIPT_PATH="glue.py"
+          S3_BUCKET="aws-glue-assets-339670971348-us-east-1"
+          S3_KEY="glue.py"
+
+          # Upload the script to S3
+          aws s3 cp $GLUE_SCRIPT_PATH s3://$S3_BUCKET/$S3_KEY
+
+          # Update the Glue job with the new script location
+          aws glue update-job \
+            --job-name $GLUE_JOB_NAME \
+            --job-update "{\"Command\": {\"ScriptLocation\": \"s3://$S3_BUCKET/$S3_KEY\"}}"
