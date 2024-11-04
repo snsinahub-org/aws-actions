@@ -43,4 +43,4 @@ jobs:
           # Update the Glue job with the new script location
           aws glue update-job \
             --job-name $GLUE_JOB_NAME \
-            --job-update Command="{Name=glueetl,ScriptLocation: s3://$S3_BUCKET/$S3_KEY}"
+            --job-update Command="{Name=glueetl,ScriptLocation=s3://$S3_BUCKET/$S3_KEY}"
