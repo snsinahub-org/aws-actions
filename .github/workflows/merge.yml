@@ -19,7 +19,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ decrets.MY_PAT }}
+          token: ${{ secrets.MY_PAT }}
 
       - name: print name of branch
         run: |
