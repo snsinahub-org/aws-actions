@@ -21,4 +21,8 @@ jobs:
 
       - name: print name of branch
         run: |
-          echo "${{ github.event.pull_request.base.ref }}"
+          echo "Base Branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Pull request event type: ${{ github.event.action }}"
+          echo "Default branch: ${{ github.event.repository.default_branch }}"
+
+      
