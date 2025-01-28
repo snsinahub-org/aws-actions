@@ -1,4 +1,4 @@
-name: auto merge 2 branches
+name: App token auto merge 2 branches 
 
 on:
   pull_request:  
