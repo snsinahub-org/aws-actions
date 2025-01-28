@@ -3,10 +3,7 @@ name: auto merge 2 branches
 on:
   pull_request:  
     types:
-      - edited
-      - closed
-      - labeled
-      - unlabeled
+      - closed      
     branches:
       - 'release/**'
       - 'hotfix/**'
