@@ -32,5 +32,6 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git checkout ${{ github.event.repository.default_branch }}
+          git pull origin ${{ github.event.repository.default_branch }}
           git merge ${{ github.event.pull_request.head.ref }} --no-ff -m "Merging PR branch into default branch"
           git push origin ${{ github.event.repository.default_branch }}    
