@@ -1,0 +1,25 @@
+name: auto merge 2 branches
+
+on:
+  pull_request:
+  
+    # types:
+    #   - edited
+    #   - closed
+    #   - labeled
+    #   - unlabeled
+    # branches:
+    #   - 'release/**'
+    #   - 'hotfix/**'
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: print name of branch
+        run: |
+          echo "${{ github.event.pull_request.base.ref }}"
