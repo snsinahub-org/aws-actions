@@ -1,16 +1,15 @@
 name: auto merge 2 branches
 
 on:
-  pull_request:
-  
-    # types:
-    #   - edited
-    #   - closed
-    #   - labeled
-    #   - unlabeled
-    # branches:
-    #   - 'release/**'
-    #   - 'hotfix/**'
+  pull_request:  
+    types:
+      - edited
+      - closed
+      - labeled
+      - unlabeled
+    branches:
+      - 'release/**'
+      - 'hotfix/**'
 
 jobs:
   automerge:
