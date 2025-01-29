@@ -25,8 +25,8 @@ jobs:
           echo "Default branch: ${{ github.event.repository.default_branch }}"
       - name: Merge PR branch into default branch
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@github.com"
           git fetch --all          
           git checkout ${{ github.event.pull_request.base.ref }}
           git branch
